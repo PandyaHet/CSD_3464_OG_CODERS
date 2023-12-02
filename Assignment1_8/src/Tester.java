@@ -3,12 +3,12 @@ public class Tester extends Employee{
     private  Vehicle vehicle;
 
     public Tester(String name, int birthYear, double occupationRate, int bugsSolved) {
-        super(name, birthYear, occupationRate,EmployeeType.Tester);
+        super(name, birthYear, occupationRate,EmployeeType.Tester,null);
         this.bugsSolved = bugsSolved;
     }
 
     public Tester(String name, int birthYear, double occupationRate, int bugsSolved, Vehicle vehicle) {
-        super(name, birthYear, occupationRate,EmployeeType.Tester);
+        super(name, birthYear, occupationRate,EmployeeType.Tester,vehicle);
         this.bugsSolved = bugsSolved;
         this.vehicle = vehicle;
     }
@@ -19,6 +19,6 @@ public class Tester extends Employee{
 
     @Override
     public String toString() {
-        return super.toString() + ", bugsSolved :" + bugsSolved +"\n"+ vehicle.toString();
+        return super.toString() + " and corrected " + bugsSolved+ " bugs.";
     }
 }

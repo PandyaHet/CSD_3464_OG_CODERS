@@ -11,6 +11,9 @@ public class Main {
         System.out.println("Employees description: ");
         management.hireTest2();
 
-
+        // Test part 3
+        System.out.println("Test 3: ");
+        System.out.println("Employees description: ");
+        management.hireTest3();
     }
 }

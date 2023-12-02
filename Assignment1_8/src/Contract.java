@@ -1,17 +1,10 @@
-public class Contract {
-    private ContractType type;
+public abstract class Contract {
 
-    // Constructor
-    public Contract(ContractType type) {
-        this.type = type;
-    }
+    public abstract double accumulatedSalary();
 
-    // Getters and Setters
-    public ContractType getType() {
-        return type;
-    }
+    public abstract void convertFrom(double accumulatedSalary);
 
-    public void setType(ContractType type) {
-        this.type = type;
-    }
+    @Override
+    public abstract String toString();
+
 }

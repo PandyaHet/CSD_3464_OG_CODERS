@@ -8,32 +8,36 @@ public class Employee {
     private double occupationRate;
 
     private EmployeeType employee;
-//    private Contract contract;
+    private Contract contract;
 
+    private Vehicle vehicle;
 
     private static final double GAIN_FACTOR_CLIENT = 500;
     private static final double GAIN_FACTOR_TRAVEL = 100;
     private static final double GAIN_FACTOR_ERROR = 10;
     private static final double GAIN_FACTOR_PROJECTS = 200;
-    public Employee(String name, int birthYear, double monthlyIncome, double occupationRate) {
+    public Employee(String name, int birthYear, double monthlyIncome, double occupationRate, Vehicle vehicle) {
         this.name = name;
         this.birthYear = birthYear;
         this.monthlyIncome = monthlyIncome;
         setOccupationRate(occupationRate);
+        this.vehicle=vehicle;
         System.out.println("We have a new employee: " + this);
     }
 
-    public Employee(String name, int birthYear, double occupationRate) {
+    public Employee(String name, int birthYear, double occupationRate, Vehicle vehicle) {
         this.name = name;
         this.birthYear = birthYear;
         setOccupationRate(occupationRate);
+        this.vehicle=vehicle;
         System.out.println("We have a new employee: " + this);
     }
-    public Employee(String name, int birthYear, double occupationRate,EmployeeType employee) {
+    public Employee(String name, int birthYear, double occupationRate,EmployeeType employee,Vehicle vehicle) {
         this.name = name;
         this.birthYear = birthYear;
         setOccupationRate(occupationRate);
         this.employee = employee;
+        this.vehicle=vehicle;
         System.out.println("We have a new employee: " + name +" a,"+employee);
     }
 
@@ -79,13 +83,20 @@ public class Employee {
         }
     }
 
-//    public  void signContract(){
-//
-//    }
+    public  void signContract(Contract contract){
+        double accumulatedSalary = contract.accumulatedSalary();
+        this.contract = contract;
+        this.contract.convertFrom(accumulatedSalary);
+    }
+
+    public String contractInfo(){
+            return "\n"+this.name+" is "+this.employee+"." +contract.toString();
+    }
 
     @Override
     public String toString() {
-        return "Employee name :" + name + "\n - Age :" + getAge() + "\n - AnnualIncome :" + getAnnualIncome() +
-                "\n - OccupationRate :" + occupationRate + "%";
+//        return "Employee name :" + name + "\n - Age :" + getAge();
+        return "Employee name : " + name + " \n - Age :" + getAge()+"\n" +vehicle +"\n" + name + " has estimated annual income is: " + getAnnualIncome() +
+                "\nAnd his/her OccupationRate :" + occupationRate + "%";
     }
 }
